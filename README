@@ -1,0 +1,24 @@
+This contains all necessary data files, evaluation and graphing scripts for the submission of Cell-specific 
+Imputation of Drug Connectivity Mapping with Incomplete Data. Details about each folder can be found below
+
+Data: 
+       Contains complete data matrix (12 cells by 450 drugs) and sparse data matrix (80 cells by 1330 drugs).
+Mkdataset.R produces the matrices, mkfold.R and mkfold_sparse.R generate the cross-validation sets. 
+Fold assignments used included for each independent instance. Install rhdf5 and cmapR libraries to run. 
+       Within the 80x1330 folder there are the completely imputed sparse matrices described in sections 2.5.2,
+ 3.4 and the hybrid version of the sparse matrix described in section 3.5, as well as scripts within each 
+subfolder for building the data sets.
+
+Evaluation:
+	Imputation contains scripts for baseline and collaborative filtering prediction and negative and 
+positive weighted connectivity correlation (sections 2.3, 2.4.2, 3.1). Install rrecsys package to run.
+	Downsample contains scripts for randomly removing compounds from folds, re-imputing and re-evaluating
+signatures to predict with less data (section 3.2).
+       Pcl_eval contains scripts for querying a drug against the true or completely imputed sparse matrix, 
+adapting gene set enrichment analysis as drug set enrichment analysis, analyzing the number of drugs 
+significantly enriched in their PCL, and input files such as PCL membership for determining drug intersection
+between data sets and PCLs (sections 2.5, 3.3, and 3.4).
+
+Analysis: 
+       Contains scripts used for graphing and example of input files. The corresponding figure numbers are 
+part of the folder name. Packages required: ggplot2, corrplot, ggpubr.
